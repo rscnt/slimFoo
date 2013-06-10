@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="{% block description %} {% endblock %}"/>
+        <title>
+            {% block title %} {% endblock %}
+        </title>
+        <link rel="stylesheet" href="/assets/bootstrap.min.css" />
+        <script type="text/javascript" 
+            src="/assets/jquery.min.js"></script>
+        <script type="text/javascript" 
+            src="/assets/bootstrap.min.js"></script>
+        <style type="text/css">
+            .rgt {
+                float: right;
+            }
+        </style>
+        {% block assets %} {% endblock %}
+    </head>
+    <body>
+
+        <div class="navbar">
+            <div class="navbar-inner">
+                <a class="brand" href="/dashboard/"> TASKIE  </a>
+                <ul class="nav">
+                    <li><a href="/admin/proyecto">Proyectos</a></li>
+                    <li><a href="/admin/task">Tareas</a></li>
+                    <li><a href="/admin/documentos">Documentos</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="page-header">
+                    <h1> 
+                        {{ block('title') }} 
+                        <small>
+                            {{ block('description') }} 
+                        </small>
+                    </h1>
+                </div>
+                {% block body %} 
+                {% endblock %} 
+                {% block footer %} {% endblock %} 
+            </div>
+        </div>
+    </body>
+</html>

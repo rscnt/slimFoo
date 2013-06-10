@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block description %}
+listado e informacion de los proyectos existentes.
+{% endblock %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block body %}
+{{ body }}
+<div class="span3">
+    <div class="row">
+        <button class="btn btn-success btn-small" id="nPro">
+            Nuevo
+        </button>
+        <hr/>
+    </div>
+    <ul class="nav nav-list" id="pro-list">
+        <li class="nav-header">
+        Proyectos
+        </li>
+        {% for item in items %}
+        <li>
+        <a class="btnEdit" data-id="{{item.id}}"
+            data-descripcion="{{item.descripcion}}" data-nombre="{{item.nombre}}">
+            {{ item.nombre }}
+            <button data-id="{{item.id}}" class="close">&times;</button>
+        </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="span2"></div>
+<div class="span4">
+    <div class="row">
+        <form id="proForm" class="form-horizontal" method="POST">
+            <fieldset>
+                <legend id="legend-pro"> Insertar  </legend>
+
+                <input type="hidden" name="proid" id="proid" value="null"/>
+
+                <div class="control-group">
+                    <div class="control-label">
+                        <label for="nombre">
+                            Nombre
+                        </label>
+                    </div>
+                    <div class="controls">
+                        <input type="text" name="nombre" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label">
+                        <label for="nombre">
+                            Descripcion
+                        </label>
+                    </div>
+                    <div class="controls">
+                        <input type="text" name="descripcion" />
+                    </div>
+                </div>
+                <div class="contro-group">
+                    <div class="controls">
+                        <input type="submit" id="formAction" value="Agregar" class="btn" />
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+<script type="text/javascript" src="/assets/app/proyectoApp.js"></script>
+{% endblock %}

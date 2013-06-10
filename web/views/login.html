@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block description %}
+otorgue sus credenciales.
+{% endblock %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block body %}
+<div class="span3"></div>
+<div class="span4">
+    <form action="." method="POST"
+        class="form-horizontal">
+        <fieldset>
+            <legend> Iniciar Session  </legend>
+    
+            <div class="control-group">
+                <div class="control-label">
+                    <label for="nombre">
+                        Usuario:
+                    </label>
+                </div>
+                <div class="controls">
+                    <input type="text" id="nombre" name="nombre" />
+                </div>
+            </div>
+    
+            <div class="control-group">
+                <div class="control-label">
+                    <label for="nombre">
+                        Password:
+                    </label>
+                </div>
+                <div class="controls">
+                    <input type="password" id="passwd" name="passwd" />
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <input type="submit" id="ingresar" name="ingresar" value="Evaluar" class="btn rgt" />
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+<div class="span3"></div>
+{% endblock %}
+{% block footer %}
+<script type="text/javascript" src="/assets/app/proyectoApp.js"></script>
+{% endblock %}

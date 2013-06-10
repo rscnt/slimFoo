@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block description %}
+vista de los diferentes proyectos.
+{% endblock %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block assets %}
+<link rel="stylesheet" href="/assets/select2.css" />
+<script type="text/javascript" 
+    src="/assets/select2.min.js"></script>
+{% endblock %}
+
+{% block body %}
+<div class="hero-unit">
+    <div class="row">
+        <h3> Tareas </h3>
+        <hr />
+    </div>
+    {% for item in tareas %}
+    <div class="row">
+        <div class="span3">
+            {% if item.completado == 0 %}
+            <button 
+                data-id="{{item.id}}"
+                data-pro="{{proid}}"
+                data-completado="{{item.completado}}"
+                class="rgt task btn btn-success btn-small">
+                Marcar Completado
+            </button>
+            {% endif %}
+            {% if item.completado == 1 %}
+            <button 
+                data-id="{{item.id}}"
+                data-pro="{{proid}}"
+                data-completado="{{item.completado}}"
+                class="rgt task btn btn-danger btn-small">
+                Completado
+            </button>
+            {% endif %} 
+        </div>
+        <span class="span5">
+            <h4> {{item.nombre}} </h4>
+            <blockquoute>
+            {{item.descripcion}}
+            </blockquoute>
+        </span>
+    </div>
+    {% endfor %}
+</div>
+<div class="hero-unit">
+    <div class="row">
+        <h3> Documentos </h3>
+        <hr />
+    </div>
+    {% for item in documentos %}
+    <div class="row">
+        <div class="span3">
+            <a href="{{item.directorio}}" 
+                class="rgt btn btn-small">
+                Descargar
+            </a>
+        </div>
+        <span class="span5">
+            <h4> {{item.nombre}} </h4>
+            <blockquoute>
+            {{item.descripcion}}
+            </blockquoute>
+        </span>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block footer %}
+<script type="text/javascript" src="/assets/app/drescripcionApp.js"></script>
+{% endblock %}

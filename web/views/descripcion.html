@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block description %}
+vista de los diferentes proyectos.
+{% endblock %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block assets %}
+<link rel="stylesheet" href="/assets/select2.css" />
+<script type="text/javascript" 
+    src="/assets/select2.min.js"></script>
+{% endblock %}
+
+{% block body %}
+{% for item in proyectos %}
+<div class="hero-unit">
+    <div class="row">
+        <span class="span5">
+            <h1> {{item.nombre}} </h1>
+            <hr />
+            <blockquoute>
+            {{item.descripcion}}
+            </blockquoute>
+        </span>
+        <div class="span2"></div>
+        <div class="span3">
+            <a href="/dashboard/{{item.id}}" class="rgt btn btn-info btn-large">
+                VER
+            </a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+{% block footer %}
+<script type="text/javascript" src="/assets/app/drescripcionApp.js"></script>
+{% endblock %}
